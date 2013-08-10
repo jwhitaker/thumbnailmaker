@@ -3,8 +3,6 @@ package ca.thewhitakers.thumbnailmaker;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
@@ -12,9 +10,8 @@ import java.io.OutputStream;
 
 import javax.imageio.ImageIO;
 
-import junit.framework.Test;
-import junit.framework.Assert;
-
+import org.junit.Assert;
+import org.junit.Test;
 
 public class ThumbnailGeneratorTest {
 	/**
