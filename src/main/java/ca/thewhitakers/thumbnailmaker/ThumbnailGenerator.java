@@ -68,15 +68,15 @@ public class ThumbnailGenerator {
 	 * @return The new dimension
 	 */
 	private Dimension getScaledDimension(Dimension originalSize, Dimension boundary) {
-		int newWidth = 0;
-		int newHeight = 0;
+		int newWidth = originalSize.width;
+		int newHeight = originalSize.height;
 		
-		if (originalSize.width > boundary.width) {
+		if (originalSize.width >= boundary.width) {
 			newWidth = boundary.width;
 			newHeight = (newWidth * originalSize.height) / originalSize.width;
 		}
 		
-		if (newHeight > boundary.height) {
+		if (newHeight >= boundary.height) {
 			newHeight = boundary.height;
 			newWidth = (newHeight * originalSize.width) / originalSize.height;
 		}
