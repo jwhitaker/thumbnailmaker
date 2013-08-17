@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -17,6 +19,23 @@ import javax.imageio.ImageIO;
  * 
  */
 public class ThumbnailGenerator {
+	/**
+	 * Generates a thumbnail, while maintaining the aspect ratio, from the input byte[], to the specified dimension.
+	 * 
+	 * @param inputImage The raw bytes of the image.
+	 * @param boundary The size fo the thumbnail to generate
+	 * @return The newly resized image as a byte[]
+	 * @throws IOException
+	 */
+	public byte[] generate(byte[] inputImage, Dimension boundary) throws IOException {
+		InputStream is = new ByteArrayInputStream(inputImage);
+		ByteArrayOutputStream os = new ByteArrayOutputStream();
+		
+		generate(is, os, boundary);
+		
+		return os.toByteArray();
+	}
+	
 	/**
 	 * Generates a thumbnail, while maintaining the aspect ratio, from the input stream, to the specified dimension.
 	 * 
